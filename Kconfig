@@ -1,0 +1,3 @@
+config REBOOTER
+	tristate "rebooter"
+	default n

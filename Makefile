@@ -1,16 +1,3 @@
-EXTRA_CFLAGS += 
+# SPDX-License-Identifier: GPL-2.0
 
-obj-m += mymod.o
-mymod-objs := reboot.o
-
-.PHONY=all clean
-
-KDIR ?= kernel-bcm
-
-all:
-	make -C $(KDIR)/ M=$(PWD) KBUILD_EXTMOD=`pwd` modules
-
-clean:
-	make -C $(KDIR)/ M=$(PWD) clean
-	rm -f *.order *.o
-
+obj-$(CONFIG_REBOOTER)			+= rebooter.o
